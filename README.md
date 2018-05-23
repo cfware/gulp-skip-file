@@ -10,7 +10,7 @@ Gulp plugin to skip files.
 
 ### Install gulp-skip-file
 
-This module requires node.js 8 or above.
+This module requires node.js 6 or above.
 
 ```sh
 npm i --save-dev gulp-skip-file
