@@ -1,6 +1,6 @@
 {
 	"name": "gulp-skip-file",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Gulp plugin to skip files.",
 	"main": "index.js",
 	"scripts": {
@@ -15,7 +15,11 @@
 		"fixtures",
 		"*.js"
 	],
-	"keywords": [],
+	"keywords": [
+		"gulp",
+		"skip",
+		"ignore"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/cfware/gulp-skip-file.git"
