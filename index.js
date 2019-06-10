@@ -1,11 +1,14 @@
 'use strict';
 
-const through2 = require('through2');
+const {Transform} = require('stream');
 
 function gulpSkipFile() {
-	return through2.obj((file, encoding, callback) => {
-		/* Skip everything given to this module. */
-		return callback();
+	return new Transform({
+		objectMode: true,
+		transform(chunk, encoding, callback) {
+			/* Skip everything given to this module. */
+			callback();
+		}
 	});
 }
 

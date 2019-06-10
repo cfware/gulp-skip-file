@@ -2,19 +2,14 @@
 	"name": "gulp-skip-file",
 	"version": "0.1.1",
 	"description": "Gulp plugin to skip files.",
-	"main": "index.js",
 	"scripts": {
 		"test": "xo && nyc ava"
 	},
 	"engines": {
-		"node": ">=6"
+		"node": ">=8"
 	},
 	"author": "Corey Farrell",
 	"license": "MIT",
-	"files": [
-		"fixtures",
-		"*.js"
-	],
 	"keywords": [
 		"gulp",
 		"skip",
@@ -28,34 +23,13 @@
 		"url": "https://github.com/cfware/gulp-skip-file/issues"
 	},
 	"homepage": "https://github.com/cfware/gulp-skip-file#readme",
-	"dependencies": {
-		"through2": "^3.0.0"
-	},
 	"devDependencies": {
-		"ava": "^1.0.1",
-		"gulp": "^4.0.0",
+		"@cfware/nyc": "^0.5.0",
+		"ava": "^2.1.0",
+		"gulp": "^4.0.2",
 		"gulp-if": "^2.0.2",
-		"nyc": "^14.0.0",
+		"nyc": "^14.1.1",
+		"through2": "^3.0.1",
 		"xo": "^0.24.0"
-	},
-	"nyc": {
-		"check-coverage": true,
-		"per-file": true,
-		"lines": 100,
-		"statements": 100,
-		"functions": 100,
-		"branches": 100,
-		"include": [
-			"*.js",
-			"!test.js"
-		]
-	},
-	"xo": {
-		"rules": {
-			"comma-dangle": [
-				"error",
-				"always-multiline"
-			]
-		}
 	}
 }
