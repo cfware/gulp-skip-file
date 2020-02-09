@@ -3,7 +3,8 @@
 	"version": "0.1.1",
 	"description": "Gulp plugin to skip files.",
 	"scripts": {
-		"test": "xo && nyc ava"
+		"pretest": "xo",
+		"test": "tap"
 	},
 	"engines": {
 		"node": ">=8"
@@ -24,11 +25,9 @@
 	},
 	"homepage": "https://github.com/cfware/gulp-skip-file#readme",
 	"devDependencies": {
-		"@cfware/nyc": "^0.6.0",
-		"ava": "^2.1.0",
-		"gulp": "^4.0.2",
+		"vinyl-fs": "^3.0.3",
 		"gulp-if": "^3.0.0",
-		"nyc": "^15.0.0",
+		"tap": "^14.10.6",
 		"through2": "^3.0.1",
 		"xo": "^0.25.3"
 	}

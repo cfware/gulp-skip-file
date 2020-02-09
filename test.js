@@ -1,17 +1,17 @@
-import path from 'path';
-import test from 'ava';
-import gulp from 'gulp';
-import gulpIf from 'gulp-if';
-import through2 from 'through2';
+const path = require('path');
+const {test} = require('tap');
+const vinylFS = require('vinyl-fs');
+const gulpIf = require('gulp-if');
+const through2 = require('through2');
 
-import gulpSkipFile from '.';
+const gulpSkipFile = require('.');
 
 function resolvePaths(...paths) {
 	const obj = {};
 
-	paths.forEach(p => {
+	for (const p of paths) {
 		obj[path.resolve(p)] = true;
-	});
+	}
 
 	return obj;
 }
@@ -22,7 +22,7 @@ test('default', t => {
 
 	function listFiles(objs) {
 		return through2.obj((file, encoding, callback) => {
-			t.is(objs[file.path], true);
+			t.equal(objs[file.path], true);
 			delete objs[file.path];
 			return callback(null, file);
 		});
@@ -31,20 +31,20 @@ test('default', t => {
 	return new Promise(resolve => {
 		function onEnd() {
 			setTimeout(() => {
-				t.deepEqual(allFiles, {});
-				t.deepEqual(afterFiles, {});
-				t.deepEqual(allFiles, {});
+				t.same(allFiles, {});
+				t.same(afterFiles, {});
+				t.same(allFiles, {});
 				resolve();
 			}, 1000);
 		}
 
-		gulp.src(['fixtures/index.{js,ts}'])
+		vinylFS.src(['fixtures/index.{js,ts}'])
 			.pipe(listFiles(allFiles))
 			.pipe(gulpIf(/\.ts$/, gulpSkipFile()))
 			.pipe(listFiles(afterFiles))
 			.pipe(gulpSkipFile())
 			.pipe(listFiles({}))
-			.pipe(gulp.dest('fixtures/build'))
+			.pipe(vinylFS.dest('fixtures/build'))
 			.on('end', onEnd);
 	});
 });
